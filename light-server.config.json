@@ -1,0 +1,10 @@
+{
+  "serve": "./",
+  "port": 8000,
+  "bind": "localhost",
+  "watchexps": [
+    "./*/**.js",
+    "./*/**.html"
+  ],
+  "open": true
+}

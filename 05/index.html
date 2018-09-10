@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://redirector.eservice.emarsys.net/ui/latest/css/app.css">
+  <title>Webcomponent Workshop</title>
+</head>
+<body>
+  <wc-steps id="steps">
+    <wc-steps-step id="step"></wc-steps-step>
+    <wc-steps-step id="step2" label="Email Basics"></wc-steps-step>
+  </wc-steps>
+
+
+  <input type="text" id="input" placeholder="Component Label">
+  <button type="button" id="button">Add Component</button>
+  <button type="button" id="remove">Remove Component</button>
+  <script>
+    document.getElementById('button').addEventListener('click', function() {
+      var component = document.createElement('wc-steps-step');
+      component.label = document.getElementById('input').value;
+      document.getElementById('steps').appendChild(component);
+    })
+
+    document.getElementById('remove').addEventListener('click', function() {
+      var component = document.querySelector('wc-steps-step');
+      if(component) {
+        document.getElementById('steps').removeChild(component);
+      }
+    })
+  </script>
+
+  <script src="./../node_modules/document-register-element/build/document-register-element.js"></script>
+  <script src="./html-custom-element.js"></script>
+  <script src="./steps.js"></script>
+  <script src="./step.js"></script>
+</body>
+</html>
