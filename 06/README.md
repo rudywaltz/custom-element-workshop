@@ -1,22 +1,24 @@
 # Bonus
 
 ## Knowledge
-HyperHTML a lightweight virtual dom helper. It made a DOM Diff so not render whole desgign if something changed inside the component. You can write with HyperHTML clean template easy way.
 
-Is has two main function bind and wire.
+hyperHTML a a lightweight virtual DOM alternative. We use it to simplify the rendering of our components: it allows us to re-render only the part is needed when something is changed in the rendering parameters. You can write clean templates with hyperHTML.
+
+hyperHTML has two main functions: `bind` and `wire`.
 
 ### bind
-Bind hyperHTML to a generic DOM container. Function returns with new content.
+
+It allows to bind a template to a DOM node.
 
 ### wire
-Wire return the element or list of elements. You can use multiple wire in the template. If you add namespace to wire, and watching parameter, the wire run only if the watched parameter is changed.
 
+Wire returns the element or list of elements. You can use multiple wires in the template. If you add namespace to the wire and a parameter, the wire updates only when the watched parameter is changed.
 
 Both use "tagged templates" function.
 
 ## Exercise
 
-build DOM diff version from component
+Build a DOM diffed version of the component.
 
 ## Helper
 
@@ -24,8 +26,7 @@ build DOM diff version from component
   <script src="./../node_modules/hyperhtml/min.js"></script>
 ```
 
-
-- one example
+- One example
 
 ```js
 const buttons = [{name: 'primary', disabled: false}, {name: 'secondary', disabled: true}];
@@ -48,7 +49,6 @@ myTemplate`
     ${buttons.map(button => buttonWire(button))}
   </div>`;
 ```
-
 
 ## Links
 - [HyperHTML](https://github.com/WebReflection/hyperHTML)

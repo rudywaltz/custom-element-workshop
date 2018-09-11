@@ -1,6 +1,6 @@
 'use strict';
 
-class wcSteps extends HTMLCustomElement {
+class WcSteps extends HTMLCustomElement {
   init() {
     this._state = {};
     this._state.steps = [];
@@ -78,4 +78,4 @@ class wcSteps extends HTMLCustomElement {
   }
 }
 
-window.customElements.define('wc-steps', wcSteps);
+window.customElements.define('wc-steps', WcSteps);
