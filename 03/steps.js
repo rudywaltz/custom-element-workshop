@@ -1,6 +1,6 @@
 'use strict';
 
-class wcSteps extends HTMLCustomElement {
+class WcSteps extends HTMLCustomElement {
   init() {
     this._dom = {};
     this._dom.wrapper = document.createElement('div');
@@ -24,4 +24,4 @@ class wcSteps extends HTMLCustomElement {
   }
 }
 
-window.customElements.define('wc-steps', wcSteps);
+window.customElements.define('wc-steps', WcSteps);

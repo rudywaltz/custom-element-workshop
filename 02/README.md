@@ -1,27 +1,29 @@
 ## Knowledge
-Custom element can always configurate 2 ways from outside, attribute and property.
-`attributeChangedCallback` run every time when watched `attribute` added, removed or changed. It has 3 parameter:
+
+Custom elements can be configured 2 ways, through an attribute and/or a property.
+
+`attributeChangedCallback` runs every time when a watched `attribute` is added, removed or changed. It has 3 parameters:
+
 - name => attribute name
-- oldValue => previus value
-- newValue => currrent value
+- oldValue => previous value
+- newValue => current value
 
 ```js
 attributeChangedCallback(name, oldValue, newValue) { }
 ```
 
-- You need define which attributes would you like to watch.
+- You need to define which attribute would you like to watch.
 ```js
 static get observedAttributes() {
   return ['my-attribute'];
 }
 ```
 
-
 ## Exercise
 
-- Create a setter for label
-- Listen the "label" attribute change
-- If you don't wanna break old test made Step 1 as default label value.
+- Create a setter for label.
+- Listen to the "label" attribute change.
+- If you don't wanna break the test you created in Step 1, add a default label value.
 
 ```html
 <wc-steps>
@@ -29,10 +31,9 @@ static get observedAttributes() {
 </wc-steps>
 ```
 
-
 ## Helper
 
-- easy way use component own setter if attribute changed (may you need a hyphen -> camelCase converter)
+- An easy way use component's own setter if an attribute is changed (may you need a hyphen -> camelCase converter):
 
 ```js
 attributeChangedCallback(name, oldValue, newValue) {

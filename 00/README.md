@@ -2,41 +2,41 @@
 
 ## Knowledge
 
-Every HTML element a copy of HTMLElement class
+The `customElements` global is used for defining a custom element and teaching the browser about a new tag. Call `customElements.define()` with the tag name you want to create and a JavaScript class that extends the base `HTMLElement`.
+
+Every HTML element extends the HTMLElement class:
 
 ```
   <button> -> HTMLButtonElement -> HTMLElement (base class)
 ```
 
-The Custom element associate a tag with class
-
-
 ```js
-class wcSteps extends HTMLElement {}
+class WcSteps extends HTMLElement {}
 ```
 
-They must contains dash own name (prevent overwrite native element)
-You need regist your component as a custom element.
+The name of a custom element must contain a dash (so the browser's parser can distinguish custom elements from regular elements).
+Registering a custom element:
 
 ```js
-window.customElements.define('wc-steps', wcSteps);
+window.customElements.define('wc-steps', WcSteps);
 ```
+
 ```html
 <wc-steps></wc-steps>
 ```
 
-- Webcomponent have some lifecycle callback.
+- Custom elements have lifecycle callbacks.
 
-- Constructor run if element create (`document.createElement('wc-steps');`) or when the browser engine founded in DOM Tree.
-- You need call super in first place of costurctor (for a correct prototype chain);
+- Constructor runs if an instance of the element is created (`document.createElement('wc-steps');`) or when the browser's parser founds in the DOM.
 
-In the constructor You can add eventListener to element, create element.
-But can't reach the DOM element, cannot append child element, cannot read own attribute cannot see the child element.
+- `super()` must be called in the constructor.
 
+In the constructor you can add events listeners, initialize states, or define any other basic setup for the custom element.
+You cannot reach the DOM, or append a child element, you cannot read the attributes of the custom element and cannot see the child elements.
 
 ```js
 
-class wcSteps extends HTMLElement {
+class WcSteps extends HTMLElement {
   constructor() {
     super();
   }
@@ -50,7 +50,7 @@ class wcSteps extends HTMLElement {
 </div>
 ```
 
-- `connectedCallback` fired after browser engine read the component or element attached to the DOM
+- `connectedCallback` fires after browser's parser founds the custom element or the element attaches to the DOM.
 
 ```js
   connectedCallback() {}
@@ -58,16 +58,16 @@ class wcSteps extends HTMLElement {
 ```
 
 ### Polyfill
-Work nativly in Chrome and Firefox (63+). [document-register-element](https://github.com/WebReflection/document-register-element) is small libary (around 5KB minified and gzipped) for the rest.
+Custom Elements work natively in Chrome, Safari and Firefox (63+). [document-register-element](https://github.com/WebReflection/document-register-element) is small libary (around 5KB minified and gzipped) for the older browsers (IE9+).
 
-### Test fremawork
-web-component-tester originally made for a Polymer, but you can use the native component well. It works with in browser, cli and selenium grids. You can write your test as usual with Mocha, Chai and Sinon. You can sea the first test in steps.spec.js, and you can check in your [browser](http:localhost:8000/00/index.spec.html)
+### Testing
+`web-component-tester` is originally made for the Polymer framework, but it can be used for custom elements as well. You can run your tests in your browser of choice, from CLI or on a Selenium Grid. You can write your tests with Mocha, Chai and Sinon. You can see the first test in steps.spec.js, and you can check it in your [browser](http:localhost:8000/00/index.spec.html).
 
 ## Exercise
 
-### Made your first the test green:
-- create you first custom element (extent the preparated `htmlCustomElement`)
-- Build the basic html structure inside the component
+### Make your first the test green:
+- Create you first custom element (extent the prepared `HTMLCustomElement`).
+- Build the basic HTML structure inside the component.
 
 ```html
 <div class="e-steps">
@@ -75,7 +75,6 @@ web-component-tester originally made for a Polymer, but you can use the native c
   </div>
 </div>
 ```
-
 
 ## Helper
 
@@ -91,7 +90,7 @@ class HTMLCustomElement extends HTMLElement {
   init() {}
 }
 
-class wcSteps extends HTMLCustomElement {
+class WcSteps extends HTMLCustomElement {
   init() {
     this._state = {}
   }

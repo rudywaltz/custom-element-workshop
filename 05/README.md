@@ -1,23 +1,24 @@
 ## Knowledge
-Attribute with boolean value has multiple valid version.
 
-This element disabled:
+A boolean attribute has multiple valid versions.
+
+This element is disabled:
+
 ```html
 <element disabled="disabled"></element>
 <element disabled="true"></element>
 <element disabled></element>
 ```
 
-This element enabled if value false or attribute removed. If attribute removed `attributeChangeCallback` get null as a newValue.
+This element is enabled if value is set to false or the attribute gets removed. If the attribute gets removed `attributeChangeCallback` gets null as a newValue.
+
 ```html
 <element disabled="false"></element>
 <element></element>
 ```
 
-
 ## Exercise
-- create disable version of step, must not trigger event
-
+- Create a disabled version of step, clicking the step should not trigger an event.
 
 ## Helper
 

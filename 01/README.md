@@ -1,16 +1,17 @@
 ## Knowledge
-- The parent component can't select child element easy because you don't know when arrive (you can use [mutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)) or you can communicate from child to parent with customEvent.
-- If you choose the secound way, the "child" component must regist later than parent (otherwise the parent is not ready as a webcomponent when data bubbling from child)
-- To add more data to the event object, the CustomEvent interface exists and the detail property can be used to pass custom data.
+
+- The parent component cannot select child element easily because it does not know when/if gets attached: you can use [mutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)) or you can communicate from child to the parent with a custom event.
+- If you choose the second way, the "child" component must be registered later than the parent (otherwise the parent is not initialized as a custom element when the data is coming from child).
+- To add more data to the event object, the CustomEvent interface allows you to add details to the `detail` property.
 
 ## Exercise
 
-- create new component `wc-steps-step`
-- fire customEvent after element attached to the DOM.
-- send predefined label for Step (e.g. "Step 1")
-- use event data in parent component generate Your first step in steps.
-  - create  `a` tag with `e-steps__item e-steps__item-action` classes
-  - element text content come from child elemenet
+- Create a new component: `wc-steps-step`.
+- Fire a CustomEvent after element gets attached to the DOM.
+- Send a predefined label for step (e.g. "Step 1").
+- Use event data in parent component to generate your first step in steps.
+  - Create an `a` tag with `e-steps__item e-steps__item-action` classes.
+  - Text content should come from child element.
 
 ```html
 <wc-steps>
@@ -22,22 +23,20 @@
 </wc-steps>
 ```
 
-
-
 ## Helper
 
-- dispatch custom event (bubbles false by default)
+- To dispatch custom event (bubbling is false by default)
 ```js
-var customEvent = new CustomEvent('update', {
+const customEvent = new CustomEvent('update', {
       bubbles: true,
       detail: 'Step 1'
     });
 this.dispatchEvent(customEvent);
 ```
 
-- test
+- Test
 ```js
-    var eventSpy = sinon.spy();
+    const eventSpy = sinon.spy();
     eventSpy.getCall(0).args[0].detail
 ```
 

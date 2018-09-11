@@ -1,11 +1,11 @@
 ## Knowledge
-In previous example we not update the current step, always attach as a copy from the result. To prevent this, must store child component data in parent and upsert the list.
+
+In the previous example we did not update the current step, we attached a copy from the result. To prevent this behavior, we must store the child component's data in parent and upsert the list.
 
 ## Exercise
-- add ```uuid``` for step component
-- upsert step in ```steps``` component
--  Make sure not leave any unnecessary DOM element after render
-
+- Add ```uuid``` for step component.
+- Upsert step in ```steps``` component.
+- Make sure not to leave any unnecessary DOM element(s) after render.
 
 ## Helper
 

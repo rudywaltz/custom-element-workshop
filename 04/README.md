@@ -1,16 +1,17 @@
 ## Knowledge
 
 ### Cleanup
-`disconnectedCallback` run after the component detached from a DOM (the bubbling not working, the parent element not catch the event itself).
-Usually use for a cleanup.
 
+`disconnectedCallback` runs after the component gets detached from the DOM (bubbling is not working, the parent element cannot catch the event).
+
+Usually we use this callback for a cleanups.
 
 ```js
   disconnectedCallback() {}
 ```
 
 ### Interaction
-If you wanna made interactive component, you must fire event, if something happend. You have two main option. you fire all event on your parent component and communicate what happend (like event name and detail).
+If you want to make an interactive component, you must fire an event if something is happened. You have two main options. You fire all your events on your parent component and communicate what happend (like event name and detail).
 
 ```js
 new CustomEvent('clicked', {
@@ -25,23 +26,21 @@ new CustomEvent('rendered');
 etc.
 ```
 
-or you can fire event directly the component who response that part
+Or you can fire event directly on component:
+
 ```js
-var customEvent = new CustomEvent('trigger', {
+const customEvent = new CustomEvent('trigger', {
       bubbles: true,
       detail: {
         data: { },
       }
     });
 ```
-The second version better for a "atomic level concept"
+The second version better for an "atomic level concept".
 
 <img src="../img/events.png" width="400px">
 
-
 ## Exercise
 
-- can able delete ```step``` component
-- dispatch ```trigger``` event on ```step``` component if the representation in the DOM clicked
-
-
+- Removing ```step``` component should also remove the step element from the DOM.
+- Dispatch a ```trigger``` event on ```step``` component if the correct DOM element has been clicked.
