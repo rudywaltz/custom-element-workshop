@@ -1,6 +1,6 @@
 ## Knowledge
 
-In the previous example we did not update the current step, we attached a copy from the result. To prevent this behavior, we must store the child component's data in parent and upsert the list.
+In the previous example we did not update the current step, we attached a copy from the result. To prevent this behavior, we must store the child component's data in parent and upsert the list. You can use UUID for the identification.
 
 ## Exercise
 - Add ```uuid``` for step component.
@@ -8,6 +8,7 @@ In the previous example we did not update the current step, we attached a copy f
 - Make sure not to leave any unnecessary DOM element(s) after render.
 
 ## Helper
+- you can find UUID on npm, but here a simple solution for this workshop:
 
 ```js
 const uuid = placeholder => {

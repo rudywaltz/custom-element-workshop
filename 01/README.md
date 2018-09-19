@@ -14,13 +14,11 @@
   - Text content should come from child element.
 
 ```html
-<wc-steps>
-  <div class="e-steps">
-    <div class="e-steps__progress">
-      <a class="e-steps__item e-steps__item-action">{label}</a>
-    </div>
+<div class="e-steps">
+  <div class="e-steps__progress">
+    <a class="e-steps__item e-steps__item-action">{label}</a>
   </div>
-</wc-steps>
+</div>
 ```
 
 ## Helper

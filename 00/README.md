@@ -29,7 +29,7 @@ window.customElements.define('wc-steps', WcSteps);
 
 - Constructor runs if an instance of the element is created (`document.createElement('wc-steps');`) or when the browser's parser founds in the DOM.
 
-- `super()` must be called in the constructor.
+- `super()` must be called in the constructor. (sidenote: you don't need do this if you use higher version than `1.1.1` from `polyfill` and `Babel7` )
 
 In the constructor you can add events listeners, initialize states, or define any other basic setup for the custom element.
 You cannot reach the DOM, or append a child element, you cannot read the attributes of the custom element and cannot see the child elements.
