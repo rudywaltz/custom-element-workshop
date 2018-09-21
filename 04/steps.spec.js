@@ -15,6 +15,11 @@ describe('wc-steps', function() {
     expect(steps).not.to.be.null;
   });
 
+  it('should not render step if not contains child component', function() {
+    var step = component.querySelector('.e-steps__progress .e-steps__item');
+    expect(step).to.be.null;
+  });
+
   it('Add step to component', function() {
     var stepComponent = document.createElement('wc-steps-step');
     component.appendChild(stepComponent);
