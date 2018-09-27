@@ -20,6 +20,10 @@ This element is enabled if value is set to false or the attribute gets removed. 
 ## Exercise
 - Create a disabled version of step, clicking the step should not trigger an event.
 
+```html
+<a class="e-steps__item e-steps__item-action e-steps__item-disabled">{label}</a>
+```
+
 ## Helper
 
 ```js

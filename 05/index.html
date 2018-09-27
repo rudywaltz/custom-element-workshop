@@ -9,7 +9,7 @@
 </head>
 <body>
   <wc-steps id="steps">
-    <wc-steps-step id="step"></wc-steps-step>
+    <wc-steps-step id="step" label="First Step"></wc-steps-step>
     <wc-steps-step id="step2" label="Email Basics"></wc-steps-step>
   </wc-steps>
 
@@ -17,11 +17,14 @@
   <input type="text" id="input" placeholder="Component Label">
   <button type="button" id="button">Add Component</button>
   <button type="button" id="remove">Remove Component</button>
+  <hr>
+  <h2>Clicked component: <span id="name"></span></h2>
   <script>
     document.getElementById('button').addEventListener('click', function() {
       var component = document.createElement('wc-steps-step');
-      component.label = document.getElementById('input').value;
+      component.setAttribute('label', document.getElementById('input').value);
       document.getElementById('steps').appendChild(component);
+      component.addEventListener('trigger', clickedElement);
     })
 
     document.getElementById('remove').addEventListener('click', function() {
@@ -30,6 +33,16 @@
         document.getElementById('steps').removeChild(component);
       }
     })
+
+    document.getElementById('step').addEventListener('trigger', clickedElement);
+    document.getElementById('step2').addEventListener('trigger', clickedElement);
+
+    function clickedElement(event) {
+      console.log(event);
+      var label = event.target.getAttribute('label');
+      document.getElementById('label').textContent = label;
+    }
+
   </script>
 
   <script src="./../node_modules/document-register-element/build/document-register-element.js"></script>
