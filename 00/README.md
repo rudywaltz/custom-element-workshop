@@ -94,7 +94,14 @@ class WcSteps extends HTMLCustomElement {
   init() {
     this._state = {}
   }
+
+  connectedCallback() {
+
+  }
 }
+
+window.customElements.define('wc-steps', WcSteps);
+
 
 ```
 
