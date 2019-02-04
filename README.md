@@ -39,3 +39,10 @@ The specification defines the inclusion and reuse of JS documents in a standards
 
 ### Custom Elements
 Designing and using new types of DOM elements.
+
+
+Tested with:
+
+<a href="https://www.browserstack.com" target="_blank">
+<img src="./img/browserstack.svg" width="300px">
+</a>
