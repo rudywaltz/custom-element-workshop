@@ -9,7 +9,7 @@ describe('wc-steps', function() {
     component.parentNode.removeChild(component);
   });
 
-  it('Add basic design to component', function() {
+  it.skip('Add basic design to component', function() {
     var steps = component.querySelector('.e-steps .e-steps__progress');
     expect(steps).not.to.be.null;
   });
