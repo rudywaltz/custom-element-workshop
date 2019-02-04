@@ -1,3 +1,5 @@
+[![Greenkeeper badge](https://badges.greenkeeper.io/rudywaltz/wc-workshop.svg)](https://greenkeeper.io/)
+
 Workshop for Custom Element
 
 1. `nvm use`
