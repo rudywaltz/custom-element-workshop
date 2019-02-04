@@ -5,6 +5,24 @@ const browsers = [
     'browserName': 'Chrome, OS X Sierra, latest',
     'os': 'OS X',
     'os_version': 'Sierra'
+  },
+  {
+    'browser': 'Safari',
+    'browserName': 'Safari, OS X Sierra, latest',
+    'os': 'OS X',
+    'os_version': 'Sierra'
+  },
+  {
+    'browser': 'Edge',
+    'browserName': 'Edge, Windows 10, latest',
+    'os': 'Windows',
+    'os_version': '10'
+  },
+  {
+    'browser': 'Firefox',
+    'browserName': 'Firefox, Windows 10, latest',
+    'os': 'Windows',
+    'os_version': '10'
   }
 ];
 
