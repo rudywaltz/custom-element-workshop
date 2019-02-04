@@ -9,10 +9,12 @@
     "wct-browser-legacy": "^1.0.1"
   },
   "devDependencies": {
-    "light-server": "^2.5.1"
+    "light-server": "^2.5.1",
+    "web-component-tester": "^6.9.2"
   },
   "scripts": {
-    "start": "light-server -c light-server.config.json"
+    "start": "light-server -c light-server.config.json",
+    "test": "wct --npm"
   },
   "author": "",
   "license": "ISC"
