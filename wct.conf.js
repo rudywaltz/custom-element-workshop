@@ -37,7 +37,6 @@ const getConfig = () => {
     },
     activeBrowsers: browsers.map(browser => {
       browser.project = 'WC workshop';
-      browser.build = 'local';
       browser.timezone = 'Europe/Budapest';
       browser['browserstack.local'] = 'true';
       browser['browserstack.video'] = 'false';
