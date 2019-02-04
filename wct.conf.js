@@ -6,15 +6,7 @@ const getConfig = () => {
     root: path.join(__dirname, '.'),
     plugins: {
       local: {
-        browsers: ['chrome', 'firefox'],
-        browserOptions: {
-          chrome: [
-            'headless'
-          ],
-          firefox: [
-            '-headless'
-          ]
-        }
+        browsers: ['chrome'],
       }
     },
     clientOptions: {
