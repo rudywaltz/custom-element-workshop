@@ -7,6 +7,11 @@ const getConfig = () => {
     plugins: {
       local: {
         browsers: ['chrome'],
+        browserOptions: {
+          chrome: [
+            'headless'
+          ]
+        }
       }
     },
     clientOptions: {
