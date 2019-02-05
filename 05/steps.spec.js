@@ -68,4 +68,3 @@ describe('wc-steps', function() {
     expect(steps.length).to.equal(1);
   });
 });
-

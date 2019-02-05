@@ -45,7 +45,7 @@ class WcSteps extends HTMLCustomElement {
     return this._state.steps.filter(item => item.uuid === uuid)[0];
   }
 
-  _deleteStep() {
+  _deleteStep(event) {
     this._state.steps = this._state.steps.filter(step => step.uuid !== event.detail.uuid);
     this._render();
   }

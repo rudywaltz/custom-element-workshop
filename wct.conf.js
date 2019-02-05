@@ -12,12 +12,12 @@ const browsers = [
     'os': 'OS X',
     'os_version': 'Sierra'
   },
-  {
-    'browser': 'Edge',
-    'browserName': 'Edge, Windows 10, latest',
-    'os': 'Windows',
-    'os_version': '10'
-  },
+  // {
+  //   'browser': 'Edge',
+  //   'browserName': 'Edge, Windows 10, latest',
+  //   'os': 'Windows',
+  //   'os_version': '10'
+  // // },
   {
     'browser': 'Firefox',
     'browserName': 'Firefox, Windows 10, latest',
@@ -45,7 +45,7 @@ const getConfig = () => {
       environmentScripts: [
         'stacky/browser.js',
         'async/lib/async.js',
-        'lodash/lodash.js',
+        'lodash/index.js',
         'mocha/mocha.js',
         'chai/chai.js',
         '@polymer/sinonjs/sinon.js',
@@ -56,6 +56,7 @@ const getConfig = () => {
     activeBrowsers: browsers.map(browser => {
       browser.project = 'WC workshop';
       browser.timezone = 'Europe/Budapest';
+      browser['browserstack.console'] = 'errors';
       browser['browserstack.local'] = 'true';
       browser['browserstack.video'] = 'false';
       browser.url = url;

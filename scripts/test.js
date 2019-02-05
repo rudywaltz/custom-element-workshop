@@ -43,6 +43,7 @@ const runTests = () => new Promise((resolve, reject) => {
 
 const onError = error => {
   if (error) {
+    console.log(error);
     process.exit(1);
   } else {
     process.exit(0);
