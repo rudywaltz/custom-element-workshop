@@ -42,8 +42,7 @@ The specification defines the inclusion and reuse of JS documents in a standards
 Designing and using new types of DOM elements.
 
 
-### Tested with
+### Tests
+You can use <a href="https://www.browserstack.com" target="_blank">BrowserStack</a> for a live or automated test for any kind of browser.
 
-<a href="https://www.browserstack.com" target="_blank">
 <img src="./img/browserstack.svg" width="300px">
-</a>
