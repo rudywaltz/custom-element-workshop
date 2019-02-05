@@ -41,6 +41,7 @@ const getConfig = () => {
     suites: ['./**/*.spec.html'],
     root: path.join(__dirname, '.'),
     simpleOutput: false,
+    expanded: true,
     clientOptions: {
       environmentScripts: [
         'stacky/browser.js',
