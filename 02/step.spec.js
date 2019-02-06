@@ -9,11 +9,14 @@ describe('wc-steps-step', function() {
     component.parentNode.removeChild(component);
   });
 
-  it('should fire update event', function() {
+  it('should fire update event', function(done) {
     var eventSpy = sinon.spy();
     component.addEventListener('update', eventSpy);
     document.body.insertBefore(component, document.body.firstChild);
-    expect(eventSpy).to.calledOnce;
-    expect(eventSpy.getCall(0).args[0].detail).to.equal('Step 1');
+    flush(function() {
+      expect(eventSpy).to.calledOnce;
+      expect(eventSpy.getCall(0).args[0].detail).to.equal('Step 1');
+      done();
+    })
   });
 });

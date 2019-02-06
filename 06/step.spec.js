@@ -12,20 +12,26 @@ describe('wc-steps-step', function() {
   });
 
   context('update event', function() {
-    it('should fire after attached', function() {
+    it('should fire after attached', function(done) {
       var eventSpy = sinon.spy();
       component.addEventListener('update', eventSpy);
       document.body.insertBefore(component, document.body.firstChild);
-      expect(eventSpy).to.calledOnce;
-      expect(eventSpy.getCall(0).args[0].detail.label).to.equal('Step 1');
+      flush(function() {
+        expect(eventSpy).to.calledOnce;
+        expect(eventSpy.getCall(0).args[0].detail.label).to.equal('Step 1');
+        done();
+      })
     });
 
-    it('should fire if "label" setted', function() {
+    it('should fire if "label" setted', function(done) {
       var eventSpy = sinon.spy();
       component.addEventListener('update', eventSpy);
       document.body.insertBefore(component, document.body.firstChild);
       component.label = 'Create Campaign';
-      expect(eventSpy.getCall(1).args[0].detail.label).to.equal('Create Campaign');
+      flush(function() {
+        expect(eventSpy.getCall(1).args[0].detail.label).to.equal('Create Campaign');
+        done();
+      })
     });
 
     it('should fire if "label" attribute changed', function(done) {
@@ -39,54 +45,47 @@ describe('wc-steps-step', function() {
       })
     });
 
-    it('should send uuid', function() {
+    it('should send uuid', function(done) {
       var eventSpy = sinon.spy();
       component.addEventListener('update', eventSpy);
       document.body.insertBefore(component, document.body.firstChild);
-      expect(eventSpy.getCall(0).args[0].detail.uuid).not.to.be.undefined;
+      flush(function() {
+        expect(eventSpy.getCall(0).args[0].detail.uuid).not.to.be.undefined;
+        done();
+      })
     });
 
-    it('should send itself', function() {
+    it('should send itself', function(done) {
       var eventSpy = sinon.spy();
       component.addEventListener('update', eventSpy);
       document.body.insertBefore(component, document.body.firstChild);
-      expect(eventSpy.getCall(0).args[0].detail.component).to.equal(component);
-    });
-
-    it('should fire if disable setted', function() {
-      var eventSpy = sinon.spy();
-      component.addEventListener('update', eventSpy);
-      document.body.insertBefore(component, document.body.firstChild);
-      component.disabled = true;
-      expect(eventSpy.getCall(1).args[0].detail.disabled).to.equal(true);
-    });
-
-    it('should fire if disable attribute changed', function(done) {
-      var eventSpy = sinon.spy();
-      component.addEventListener('update', eventSpy);
-      document.body.insertBefore(component, document.body.firstChild);
-      component.setAttribute('disabled', true);
-      flush(function(){
-        expect(eventSpy.getCall(1).args[0].detail.disabled).to.equal(true);
+      flush(function() {
+        expect(eventSpy.getCall(0).args[0].detail.component).to.equal(component);
         done();
       })
     });
   });
 
   context('delete event', function() {
-    it('should fire event if component removed', function() {
+    it('should fire event if component removed', function(done) {
       var eventSpy = sinon.spy();
       component.addEventListener('delete', eventSpy);
       document.body.insertBefore(component, document.body.firstChild);
       document.body.removeChild(component);
-      expect(eventSpy.getCall(0).args[0].detail).not.to.be.null;
+      flush(function() {
+        expect(eventSpy.getCall(0).args[0].detail).not.to.be.null;
+        done();
+      })
     });
   });
 
-  it('should disabled false by default', function() {
+  it('should disabled false by default', function(done) {
     var eventSpy = sinon.spy();
     component.addEventListener('update', eventSpy);
     document.body.insertBefore(component, document.body.firstChild);
-    expect(eventSpy.getCall(0).args[0].detail.disabled).to.equal(false);
+    flush(function(){
+      expect(eventSpy.getCall(0).args[0].detail.disabled).to.equal(false);
+      done();
+    })
   });
 });

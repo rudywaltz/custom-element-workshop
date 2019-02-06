@@ -20,71 +20,91 @@ describe('wc-steps', function() {
     expect(step).to.be.null;
   });
 
-  it('Add step to component', function() {
+  it('Add step to component', function(done) {
     var stepComponent = document.createElement('wc-steps-step');
     component.appendChild(stepComponent);
-    var step = component.querySelector('.e-steps__progress .e-steps__item');
-    expect(step).not.to.be.null;
-    expect(step.textContent).to.equal('Step 1');
+    flush(function() {
+      var step = component.querySelector('.e-steps__progress .e-steps__item');
+      expect(step).not.to.be.null;
+      expect(step.textContent).to.equal('Step 1');
+      done();
+    })
   });
 
-  it('should step title use from setter', function() {
-    var stepComponent = document.createElement('wc-steps-step');
-    stepComponent.label = 'Edit Content';
-    component.appendChild(stepComponent);
-    var step = component.querySelector('.e-steps__progress .e-steps__item');
-    expect(step).not.to.be.null;
-    expect(step.textContent).to.equal('Edit Content');
-  });
-
-  it('should update the current step name', function() {
+  it('should step title use from setter', function(done) {
     var stepComponent = document.createElement('wc-steps-step');
     stepComponent.label = 'Edit Content';
     component.appendChild(stepComponent);
-    stepComponent.label = 'Schedule';
-    var step = component.querySelectorAll('.e-steps__progress .e-steps__item');
-    expect(step.length).to.be.equal(1);
-    expect(step[0].textContent).to.equal('Schedule');
+    flush(function() {
+      var step = component.querySelector('.e-steps__progress .e-steps__item');
+      expect(step).not.to.be.null;
+      expect(step.textContent).to.equal('Edit Content');
+      done()
+    })
   });
 
-  it('should fire event the step component after click', function() {
+  it('should update the current step name', function(done) {
     var stepComponent = document.createElement('wc-steps-step');
     stepComponent.label = 'Edit Content';
     component.appendChild(stepComponent);
-    var eventSpy = sinon.spy();
-    stepComponent.addEventListener('trigger', eventSpy);
-    var step = component.querySelector('.e-steps__progress .e-steps__item');
-    step.click();
-    expect(eventSpy).to.be.calledOnce;
+    flush(function() {
+      stepComponent.label = 'Schedule';
+      var step = component.querySelectorAll('.e-steps__progress .e-steps__item');
+      expect(step.length).to.be.equal(1);
+      expect(step[0].textContent).to.equal('Schedule');
+      done();
+    })
   });
 
-  it('should remove step if component deleted', function() {
+  it('should fire event the step component after click', function(done) {
+    var stepComponent = document.createElement('wc-steps-step');
+    stepComponent.label = 'Edit Content';
+    component.appendChild(stepComponent);
+    flush(function() {
+      var eventSpy = sinon.spy();
+      stepComponent.addEventListener('trigger', eventSpy);
+      var step = component.querySelector('.e-steps__progress .e-steps__item');
+      step.click();
+      expect(eventSpy).to.be.calledOnce;
+      done();
+    })
+  });
+
+  it('should remove step if component deleted', function(done) {
     var stepComponent = document.createElement('wc-steps-step');
     var stepComponent2 = document.createElement('wc-steps-step');
     component.appendChild(stepComponent);
     component.appendChild(stepComponent2);
     component.removeChild(stepComponent);
-    var steps = component.querySelectorAll('.e-steps__progress .e-steps__item');
-    expect(steps.length).to.equal(1);
+    flush(function() {
+      var steps = component.querySelectorAll('.e-steps__progress .e-steps__item');
+      expect(steps.length).to.equal(1);
+      done();
+    })
   });
 
-  it('should add class if component step disabled', function() {
+  it('should add class if component step disabled', function(done) {
     var stepComponent = document.createElement('wc-steps-step');
     component.appendChild(stepComponent);
-    stepComponent.disabled = true;
-    var disabledStep = component.querySelector('.e-steps__progress .e-steps__item.e-steps__item-disabled');
-    expect(disabledStep).not.to.be.null;
+    flush(function() {
+      stepComponent.disabled = true;
+      var disabledStep = component.querySelector('.e-steps__progress .e-steps__item.e-steps__item-disabled');
+      expect(disabledStep).not.to.be.null;
+      done();
+    })
   });
 
-  it('should not fire event on the step component if it is disabled', function() {
+  it('should not fire event on the step component if it is disabled', function(done) {
     var stepComponent = document.createElement('wc-steps-step');
     component.appendChild(stepComponent);
-    stepComponent.disabled = true;
-    var eventSpy = sinon.spy();
-    stepComponent.addEventListener('trigger', eventSpy);
-    var step = component.querySelector('.e-steps__progress .e-steps__item');
-    step.click();
-    expect(eventSpy).not.to.be.called;
+    flush(function() {
+      stepComponent.disabled = true;
+      var eventSpy = sinon.spy();
+      stepComponent.addEventListener('trigger', eventSpy);
+      var step = component.querySelector('.e-steps__progress .e-steps__item');
+      step.click();
+      expect(eventSpy).not.to.be.called;
+      done();
+    })
   });
 });
-
