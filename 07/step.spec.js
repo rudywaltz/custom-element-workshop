@@ -64,6 +64,28 @@ describe('wc-steps-step', function() {
         done();
       })
     });
+
+    it('should fire if disable setted', function(done) {
+      var eventSpy = sinon.spy();
+      component.addEventListener('update', eventSpy);
+      document.body.insertBefore(component, document.body.firstChild);
+      flush(function() {
+        component.disabled = true;
+        expect(eventSpy.getCall(1).args[0].detail.disabled).to.equal(true);
+        done();
+      })
+    });
+
+    it('should fire if disable attribute changed', function(done) {
+      var eventSpy = sinon.spy();
+      component.addEventListener('update', eventSpy);
+      document.body.insertBefore(component, document.body.firstChild);
+      component.setAttribute('disabled', true);
+      flush(function(){
+        expect(eventSpy.getCall(1).args[0].detail.disabled).to.equal(true);
+        done();
+      })
+    });
   });
 
   context('delete event', function() {
