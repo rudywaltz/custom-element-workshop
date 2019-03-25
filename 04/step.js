@@ -38,7 +38,6 @@ class wcStep extends HTMLCustomElement {
       detail: this._state
     }));
   }
-
 }
 
 window.customElements.define('wc-steps-step', wcStep);

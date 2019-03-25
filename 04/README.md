@@ -14,6 +14,7 @@ Usually we use this callback for a cleanups.
 If you want to make an interactive component, you must fire an event if something is happened. You have two main options. You fire all your events on your parent component and communicate what happend (like event name and detail).
 
 ```js
+// fired on the steps component
 new CustomEvent('clicked', {
       detail: {
         label: 'step 1',
@@ -21,7 +22,9 @@ new CustomEvent('clicked', {
       }
     });
 
+// fired on the steps component
 new CustomEvent('rendered');
+
 
 etc.
 ```
@@ -29,12 +32,12 @@ etc.
 Or you can fire event directly on component:
 
 ```js
-const customEvent = new CustomEvent('trigger', {
-      bubbles: true,
-      detail: {
-        data: { },
-      }
-    });
+// fired on step component
+const customEvent = new CustomEvent('trigger');
+
+// fired on the steps component
+new CustomEvent('rendered');
+
 ```
 The second version better for an "atomic level concept".
 
@@ -44,3 +47,19 @@ The second version better for an "atomic level concept".
 
 - Removing ```step``` component should also remove the step element from the DOM.
 - Dispatch a ```trigger``` event on ```step``` component if the correct DOM element has been clicked.
+
+<details>
+  <summary>Hint</summary>
+  <div>
+    If you pass the <code>this</code> in update detail, you can dispatch event on it.
+
+  ```js
+const triggerEvent = new CustomEvent('trigger');
+const stepComponent = event.detail.component;
+
+stepElement.addEventListener('click', () =>
+    stepComponent.component.dispatchEvent(triggerEvent)
+);
+  ```
+  </div>
+</details>

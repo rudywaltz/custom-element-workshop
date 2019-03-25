@@ -2,7 +2,7 @@
 
 - The parent component cannot select child element easily because it does not know when/if gets attached: you can use [mutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)) or you can communicate from child to the parent with a custom event.
 - If you choose the second way, the "child" component must be **registered later** than the parent (otherwise the parent is not initialized as a custom element when the data is coming from child).
-- To add more data to the event object, the CustomEvent interface allows you to add details to the `detail` property.
+- To pass more data to the event object, use the CustomEvent interface, it allows you to add details to the `detail` property.
 
 ## Exercise
 

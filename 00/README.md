@@ -69,12 +69,25 @@ Custom Elements work natively in Chrome, Safari and Firefox (63+). [document-reg
 - Create you first custom element (extent the prepared `HTMLCustomElement`).
 - Build the basic HTML structure inside the component.
 
+
 ```html
 <div class="e-steps">
   <div class="e-steps__progress">
   </div>
 </div>
 ```
+
+<details>
+  <summary>Create DOM Element with class</summary>
+  <div>
+
+  ```js
+const steps = document.createElement('div');
+steps.className = 'e-steps';
+document.body.appendChild(steps);
+  ```
+  </div>
+</details>
 
 ## Helper
 
@@ -108,3 +121,4 @@ window.customElements.define('wc-steps', WcSteps);
 ## Links
 - [web-component-tester](https://github.com/Polymer/tools/tree/master/packages/web-component-tester)
 - [document-register-element](https://github.com/WebReflection/document-register-element)
+- [document.createElement()](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement)

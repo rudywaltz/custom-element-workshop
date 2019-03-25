@@ -13,5 +13,6 @@ describe('wc-steps-step', function() {
     var eventSpy = sinon.spy();
     component.addEventListener('update', eventSpy);
     document.body.insertBefore(component, document.body.firstChild);
+    // expect
   });
 });

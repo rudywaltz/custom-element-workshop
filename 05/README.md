@@ -31,6 +31,6 @@ const convertAttributeToBoolen = value =>
   value !== undefined && value !== null && value !== false && value !== 'false';
 ```
 
-## Tips
+## Pro Tips
 In Internet Explorer, disabled elements do not respond to mouse events. If you use custom-element as a wrapper, or you build the design inside the custom element, you must intruduce a new name for this attribute like `wc-disabled`.
 [Disabled attribute in Explorer](https://msdn.microsoft.com/en-us/ie/ms533732(v=vs.94))
