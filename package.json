@@ -5,7 +5,7 @@
   "main": "src/index.html",
   "dependencies": {
     "document-register-element": "1.14.3",
-    "hyperhtml": "2.31.6",
+    "hyperhtml": "2.32.0",
     "light-server": "2.6.4",
     "wct-browser-legacy": "1.0.2"
   },
