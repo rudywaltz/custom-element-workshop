@@ -1,4 +1,3 @@
-[![Greenkeeper badge](https://badges.greenkeeper.io/rudywaltz/custom-element-workshop.svg)](https://greenkeeper.io/)
 [![BrowserStack Status](https://www.browserstack.com/automate/badge.svg?badge_key=VU1CUkFDYUh0QmN1UDdtOXJQSVdVbEViMnlyUm96czNGeFJqWnB2VXZhWT0tLWZ1OU9TZENGN1prc3pWZGh3c2x1Y2c9PQ==--b6177e3b1e1ef8275a81f4f0ea363336a5ac309c)](https://www.browserstack.com/automate/public-build/VU1CUkFDYUh0QmN1UDdtOXJQSVdVbEViMnlyUm96czNGeFJqWnB2VXZhWT0tLWZ1OU9TZENGN1prc3pWZGh3c2x1Y2c9PQ==--b6177e3b1e1ef8275a81f4f0ea363336a5ac309c)
 [![Build Status](https://travis-ci.org/rudywaltz/custom-element-workshop.svg?branch=master)](https://travis-ci.org/rudywaltz/custom-element-workshop)
 
