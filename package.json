@@ -6,7 +6,7 @@
   "dependencies": {
     "document-register-element": "1.14.3",
     "hyperhtml": "2.33.0",
-    "light-server": "2.7.0",
+    "light-server": "2.8.0",
     "wct-browser-legacy": "1.0.2"
   },
   "devDependencies": {
