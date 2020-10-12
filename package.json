@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.html",
   "dependencies": {
-    "document-register-element": "1.14.6",
+    "document-register-element": "1.14.10",
     "hyperhtml": "2.33.0",
     "light-server": "2.9.1",
     "wct-browser-legacy": "1.0.2"
